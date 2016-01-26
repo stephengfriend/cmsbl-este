@@ -1,3 +1,15 @@
 machine:
   node:
     version: 5.5.0
+
+machine:
+  services:
+    - docker
+
+dependencies:
+  pre:
+    - docker build -t stephengfriend/cmsbl-este:$CIRCLE_SHA1 .
+
+test:
+  override:
+    - docker run stephengfriend/cmsbl-este:$CIRCLE_SHA1 test

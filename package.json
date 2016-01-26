@@ -9,7 +9,8 @@
   "scripts": {
     "install": "gulp fix-react-native",
     "postinstall": "gulp build --production",
-    "test": "gulp test"
+    "test": "gulp test",
+    "start": "node src/server"
   },
   "engines": {
     "node": "5.5.0"
