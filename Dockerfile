@@ -4,11 +4,11 @@ MAINTAINER Stephen G. Friend, hello@stephengfriend.com
 
 ENV DIR=/opt/este NODE_ENV=production
 
-RUN npm install -g gulp-cli node-gyp
+RUN npm install -g gulp-cli --silent
 
 # Install dependencies
 COPY package.json ${DIR}/
-RUN cd ${DIR} && echo "# REPLACE ME" > README.md && npm install
+RUN cd ${DIR} && echo "# REPLACE ME" > README.md && npm install --silent
 
 # Bundle app source
 COPY . ${DIR}
