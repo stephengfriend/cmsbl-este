@@ -3,7 +3,7 @@ machine:
     - docker
 
 dependencies:
-  pre:
+  override:
     - docker build -t stephengfriend/cmsbl-este:$CIRCLE_SHA1 .
 
 test:
