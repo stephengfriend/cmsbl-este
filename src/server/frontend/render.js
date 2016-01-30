@@ -79,6 +79,10 @@ export default function render(req, res, next) {
   };
   const store = configureStore({initialState});
 
+  GLOBAL.navigator = {
+    userAgent: req.headers['user-agent']
+  };
+
   // Fetch logged in user here because routes may need it. Remember we can use
   // store.dispatch method.
 
