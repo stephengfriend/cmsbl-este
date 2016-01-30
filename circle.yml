@@ -18,5 +18,5 @@ deployment:
   production:
     branch: master
     commands:
-      - aws ecr get-login --region us-east-1
+      - aws ecr get-login --region us-east-1 --registry-ids $AMAZON_ACCOUNT_ID
       - ./scripts/deploy.sh $CIRCLE_SHA1 $AMAZON_ACCOUNT_ID
