@@ -9,7 +9,8 @@
   "scripts": {
     "install": "gulp fix-react-native",
     "postinstall": "gulp build --production",
-    "test": "gulp test"
+    "test": "gulp test",
+    "start": "node src/server"
   },
   "engines": {
     "node": "5.5.0"
@@ -71,6 +72,7 @@
     "less": "^2.5.1",
     "less-loader": "^2.0.0",
     "make-error": "^1.0.4",
+    "material-ui": "^0.14.2",
     "nconf": "^0.8.1",
     "node-sass": "^3.1.2",
     "nodemon": "^1.8.1",

@@ -3,6 +3,7 @@ import Helmet from 'react-helmet';
 import React, {PropTypes} from 'react';
 import {FormattedHTMLMessage} from 'react-intl';
 import {Link} from 'react-router';
+import RaisedButton from 'material-ui/lib/raised-button';
 
 export default class Page extends Component {
 
@@ -23,6 +24,7 @@ export default class Page extends Component {
         </p>
         <div className="tocheck">
           <h2>{msg.toCheck.h2}</h2>
+          <RaisedButton label="Default" />
           {/* Note require usage for image source. Very useful for CDN. */}
           <img alt="50x50 placeholder" src={require('./50x50.png')} />
           <ul>

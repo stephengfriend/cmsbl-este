@@ -1,3 +1,22 @@
 machine:
-  node:
-    version: 5.5.0
+  python:
+    version: 2.7.3
+  services:
+    - docker
+
+dependencies:
+  pre:
+    - pip install awscli
+  override:
+    - docker build --rm=false -t $AMAZON_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/cmsbl/webapp:$CIRCLE_SHA1 .
+
+test:
+  override:
+    - docker run $AMAZON_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/cmsbl/webapp:$CIRCLE_SHA1 test
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - aws ecr get-login --region us-east-1
+      - ./scripts/deploy.sh $CIRCLE_SHA1 $AMAZON_ACCOUNT_ID

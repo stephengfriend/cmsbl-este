@@ -1,6 +1,7 @@
 import Component from 'react-pure-render/component';
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
+import AppBar from 'material-ui/lib/app-bar';
 
 export default class Header extends Component {
 
@@ -15,6 +16,10 @@ export default class Header extends Component {
 
     return (
       <header>
+        <AppBar
+          title="Title"
+          iconClassNameRight="muidocs-icon-action-home"
+        />
         <h1>
           <Link to="/">{msg.home}</Link>
         </h1>
