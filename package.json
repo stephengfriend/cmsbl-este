@@ -5,7 +5,6 @@
   ],
   "description": "Dev stack and starter kit for React universal web apps",
   "private": true,
-  "//": "Use gulp for dev. It's cross platform.",
   "scripts": {
     "install": "gulp fix-react-native",
     "postinstall": "gulp build --production",

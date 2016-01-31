@@ -17,7 +17,7 @@ export default class Header extends Component {
     return (
       <header>
         <AppBar
-          title="Title"
+          title="Chesapeake Men's Senior Baseball League"
           iconClassNameRight="muidocs-icon-action-home"
         />
         <h1>
