@@ -2,7 +2,7 @@ FROM 294321010831.dkr.ecr.us-east-1.amazonaws.com/cmsbl/base:5.5.0
 
 MAINTAINER Stephen G. Friend, hello@stephengfriend.com
 
-ENV DIR=/opt/este NODE_ENV=production
+ENV DIR=/opt/este NODE_ENV=production PORT=80
 
 COPY package.json ${DIR}/
 RUN apk add --update python python-dev build-base && \
