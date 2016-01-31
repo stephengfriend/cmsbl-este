@@ -5,11 +5,18 @@ machine:
     - docker
 
 dependencies:
+  cache_directories:
+    - "~/docker"
   pre:
     - pip install awscli
     - eval $(aws ecr get-login --region us-east-1 --registry-ids $AMAZON_ACCOUNT_ID)
+    - if [[ -e ~/docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
   override:
-    - docker build --rm=false -t $AMAZON_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/cmsbl/webapp:$CIRCLE_SHA1 .
+    - docker build --rm=false -t cmsbl/webapp:latest .
+    - mkdir -p ~/docker; docker save cmsbl/webapp:latest > ~/docker/image.tar
+
+  override:
+
 
 test:
   override:
@@ -19,4 +26,5 @@ deployment:
   production:
     branch: master
     commands:
+      - docker tag cmsbl/webapp:latest $AMAZON_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/cmsbl/webapp:$CIRCLE_SHA1
       - ./scripts/deploy.sh $CIRCLE_SHA1 $AMAZON_ACCOUNT_ID

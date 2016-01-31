@@ -5,6 +5,7 @@ MAINTAINER Stephen G. Friend, hello@stephengfriend.com
 ENV DIR=/opt/este NODE_ENV=production PORT=80
 
 COPY package.json ${DIR}/
+
 RUN apk add --update python python-dev build-base && \
   cd ${DIR} && echo "# REPLACE ME" > README.md && npm install --silent && \
   apk del python python-dev build-base ${DEL_PKGS} && \
@@ -15,5 +16,8 @@ COPY . ${DIR}
 
 WORKDIR ${DIR}
 
+EXPOSE ${PORT}
+
 ENTRYPOINT ["npm"]
+
 CMD ["start"]
