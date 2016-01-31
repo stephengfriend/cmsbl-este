@@ -15,9 +15,6 @@ dependencies:
     - docker build --rm=false -t cmsbl/webapp:latest .
     - mkdir -p ~/docker; docker save cmsbl/webapp:latest > ~/docker/image.tar
 
-  override:
-
-
 test:
   override:
     - docker run $AMAZON_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/cmsbl/webapp:$CIRCLE_SHA1 test
