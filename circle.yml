@@ -17,7 +17,7 @@ dependencies:
 
 test:
   override:
-    - docker run $AMAZON_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/cmsbl/webapp:$CIRCLE_SHA1 test
+    - docker run cmsbl/webapp:latest test
 
 deployment:
   production:
