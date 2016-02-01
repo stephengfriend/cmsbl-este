@@ -15,9 +15,9 @@ RUN apk add --update python python-dev build-base && \
 
 COPY scripts src/browser src/common src/server test/ webpack/ .babelrc .dockerignore .editorconfig .eslintignore .eslintrc .node-version app.json Dockerrun.aws.json.template gulpfile.babel.js LICENSE README.md ${DIR}/
 
-RUN gulp build -p
-
 WORKDIR ${DIR}
+
+RUN gulp build -p
 
 EXPOSE ${PORT}
 
