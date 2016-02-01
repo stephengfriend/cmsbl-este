@@ -13,7 +13,7 @@ RUN apk add --update python python-dev build-base && \
   rm -rf /etc/ssl /usr/share/man /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp \
     /usr/lib/node_modules/npm/man /usr/lib/node_modules/npm/doc /usr/lib/node_modules/npm/html
 
-COPY scripts src/browser src/common src/server test/ webpack/ .babelrc .dockerignore .editorconfig .eslintignore .eslintrc .node-version app.json Dockerrun.aws.json.template gulpfile.babel.js LICENSE README.md ${DIR}
+COPY scripts src/browser src/common src/server test/ webpack/ .babelrc .dockerignore .editorconfig .eslintignore .eslintrc .node-version app.json Dockerrun.aws.json.template gulpfile.babel.js LICENSE README.md ${DIR}/
 
 RUN gulp build -p
 
