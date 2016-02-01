@@ -82,9 +82,13 @@
     "react-dom": "^0.14.0",
     "react-helmet": "^2.1.1",
     "react-intl": "^2.0.0-pr-1",
+    "react-native": "^0.18.0",
+    "react-native-browser-polyfill": "^0.1.1",
+    "react-native-side-menu": "^0.18.0",
     "react-pure-render": "^1.0.1",
     "react-redux": "^4.0.0",
     "react-router": "^2.0.0-rc5",
+    "react-tap-event-plugin": "^0.2.2",
     "react-transform-catch-errors": "^1.0.0",
     "react-transform-hmr": "^1.0.1",
     "redbox-react": "^1.0.5",
@@ -109,10 +113,5 @@
     "webpack-hot-middleware": "^2.1.0",
     "webpack-isomorphic-tools": "^2.2.24",
     "yargs": "^3.3.1"
-  },
-  "devDependencies": {
-    "react-native": "^0.18.0",
-    "react-native-browser-polyfill": "^0.1.1",
-    "react-native-side-menu": "^0.18.0"
   }
 }
