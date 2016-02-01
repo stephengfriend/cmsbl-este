@@ -7,12 +7,13 @@ ENV DIR=/opt/este NODE_ENV=production PORT=80
 COPY package.json ${DIR}/
 
 RUN apk add --update python python-dev build-base && \
-  cd ${DIR} && echo "# REPLACE ME" > README.md && npm install --silent && \
+  cd ${DIR} && echo "# REPLACE ME" > README.md && \
+  npm install --production --no-progress && gulp build -p && \
   apk del python python-dev build-base ${DEL_PKGS} && \
   rm -rf /etc/ssl /usr/share/man /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp \
     /usr/lib/node_modules/npm/man /usr/lib/node_modules/npm/doc /usr/lib/node_modules/npm/html
 
-COPY . ${DIR}
+COPY scripts src/browser src/common src/server test/ webpack/ .babelrc .dockerignore .editorconfig .eslintignore .eslintrc .node-version app.json Dockerrun.aws.json.template gulpfile.babel.js LICENSE README.md ${DIR}
 
 WORKDIR ${DIR}
 
