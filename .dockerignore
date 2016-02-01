@@ -1,3 +1,10 @@
 .git/
+android/
+ios/
 node_modules/
+src/native/
+.flowconfig
+.watchmanconfig
+index.android.js
+index.ios.js
 npm-debug.log
